@@ -1,17 +1,25 @@
 import { Button, Card, CardContent, Grid, TextField, Typography } from '@mui/material';
 import React from 'react';
+import "./App.css";
+import logo from "./logo.svg";
 
 
 function App() {
     return (
         <div className='App'>
-            <Typography gutterBottom variant="h3" align='center'>
-                React App
-            </Typography>
+
+            <header className="App-header" align="center">
+                <img src={logo} className="App-logo" alt="logo" />
+                <Typography gutterBottom variant="h3" align='center'>
+                    Unsere App
+                </Typography>
+            </header>
+
+
             <Card style={{ maxWidth: 600, margin: "0 auto", padding: "20px 5px" }}>
                 <CardContent>
                     <Typography gutterBottom variant='h5'>
-                        Contact Us
+                        Analysis Control
                     </Typography>
                     <Typography gutterBottom color="textSecondary" variant='body2' component="p">
                         Lorem ipsum dolor sit amet.
