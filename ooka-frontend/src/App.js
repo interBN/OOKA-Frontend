@@ -1,7 +1,7 @@
 
 // https://stackoverflow.com/a/72345080
 
-import { Button, Card, CardContent, Alert, Grid, Typography, FormControl, Radio, FormControlLabel, RadioGroup, FormLabel } from '@mui/material';
+import { Card, CardContent, Grid, Typography, FormControl, Radio, FormControlLabel, RadioGroup, FormLabel } from '@mui/material';
 import React from 'react';
 import "./App.css";
 import logo from "./logo.svg";
@@ -9,7 +9,7 @@ import { useRadioGroup } from '@mui/material/RadioGroup';
 import { styled } from '@mui/material/styles';
 import axios from 'axios';
 import { useState, useCallback } from 'react';
-import SubmitButton from './SimpleBackdrop';
+import SubmitButton from './SubmitButton';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -119,11 +119,11 @@ function App() {
     return (
         <div className='App'>
 
-            <Alert variant="filled" severity="info" onClose={() => { }}>This is an info alert — check it out!</Alert>
+            {/* <Alert variant="filled" severity="info" onClose={() => { }}>This is an info alert — check it out!</Alert> */}
             <header className="App-header" align="center">
                 <img src={logo} className="App-logo" alt="logo" />
                 <Typography gutterBottom variant="h3" align='center'>
-                    Unsere App
+                    Ship Configurator
                 </Typography>
             </header>
             <Grid container spacing={2}>
@@ -131,7 +131,7 @@ function App() {
                     <Card style={{ maxWidth: 600, margin: "0 auto", padding: "10px 10px" }}>
                         <CardContent>
                             <Typography gutterBottom variant='h5'>
-                                Ship Configurator
+                                Get Started
                             </Typography>
                             <Typography gutterBottom color="textSecondary" variant='body2' component="p">
                                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
