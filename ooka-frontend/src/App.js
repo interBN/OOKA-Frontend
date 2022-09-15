@@ -14,7 +14,8 @@ import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
+import Status from './Status';
+import Result from './Result';
 
 const StyledFormControlLabel = styled((props) => <FormControlLabel {...props} />)(
     ({ theme, checked }) => ({
@@ -123,7 +124,7 @@ function App() {
             <header className="App-header" align="center">
                 <img src={logo} className="App-logo" alt="logo" />
                 <Typography gutterBottom variant="h3" align='center'>
-                    Ship Configurator
+                    Motor Configurator
                 </Typography>
             </header>
             <Grid container spacing={2}>
@@ -131,7 +132,7 @@ function App() {
                     <Card style={{ maxWidth: 600, margin: "0 auto", padding: "10px 10px" }}>
                         <CardContent>
                             <Typography gutterBottom variant='h5'>
-                                Get Started
+                                Getting Started
                             </Typography>
                             <Typography gutterBottom color="textSecondary" variant='body2' component="p">
                                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
@@ -143,17 +144,15 @@ function App() {
                     <Card style={{ maxWidth: 600, margin: "0 auto", padding: "10px 10px" }}>
                         <form>
                             <Grid container spacing={2}>
-
                                 <Grid xs={12} item>
                                     <Accordion expanded={expanded === 'panel1'} onChange={handleAccordionChange('panel1')}>
                                         <AccordionSummary
                                             expandIcon={<ExpandMoreIcon />}
                                             aria-controls="panel1bh-content"
                                             id="panel1bh-header"
-
                                         >
                                             <Typography sx={{ width: '33%', flexShrink: 0 }}>
-                                                General settings
+                                                Power Systems
                                             </Typography>
                                         </AccordionSummary>
                                         <AccordionDetails>
@@ -177,6 +176,40 @@ function App() {
                                                     </RadioGroup>
                                                 </FormControl>
                                             </Grid>
+                                            <Grid xs={12} item>
+                                                <FormControl>
+                                                    <FormLabel id="powerTransmission">Power Transmission</FormLabel>
+                                                    <RadioGroup row name="powerTransmission" defaultValue="1" onChange={handleChangePowerTransmission}>
+                                                        <MyFormControlLabel value="1" label="Option 1" control={<Radio />} />
+                                                        <MyFormControlLabel value="2" label="Option 2" control={<Radio />} />
+                                                        <MyFormControlLabel value="3" label="Option 3" control={<Radio />} />
+                                                    </RadioGroup>
+                                                </FormControl>
+                                            </Grid>
+                                            <Grid xs={12} item>
+                                                <FormControl>
+                                                    <FormLabel id="gearbox">Gearbox</FormLabel>
+                                                    <RadioGroup row name="gearbox" defaultValue="1" onChange={handleChangeGearbox}>
+                                                        <MyFormControlLabel value="1" label="Option 1" control={<Radio />} />
+                                                        <MyFormControlLabel value="2" label="Option 2" control={<Radio />} />
+                                                        <MyFormControlLabel value="3" label="Option 3" control={<Radio />} />
+                                                    </RadioGroup>
+                                                </FormControl>
+                                            </Grid>
+                                        </AccordionDetails>
+                                    </Accordion>
+                                    <Accordion expanded={expanded === 'panel2'} onChange={handleAccordionChange('panel2')}>
+                                        <AccordionSummary
+                                            expandIcon={<ExpandMoreIcon />}
+                                            aria-controls="panel2bh-content"
+                                            id="panel2bh-header"
+
+                                        >
+                                            <Typography sx={{ width: '33%', flexShrink: 0 }}>
+                                                Liquid Gas
+                                            </Typography>
+                                        </AccordionSummary>
+                                        <AccordionDetails>
                                             <Grid xs={12} item>
                                                 <FormControl>
                                                     <FormLabel id="oilSystem">Oil System</FormLabel>
@@ -217,6 +250,19 @@ function App() {
                                                     </RadioGroup>
                                                 </FormControl>
                                             </Grid>
+                                        </AccordionDetails>
+                                    </Accordion>
+                                    <Accordion expanded={expanded === 'panel3'} onChange={handleAccordionChange('panel3')}>
+                                        <AccordionSummary
+                                            expandIcon={<ExpandMoreIcon />}
+                                            aria-controls="panel3bh-content"
+                                            id="panel3bh-header"
+                                        >
+                                            <Typography sx={{ width: '33%', flexShrink: 0 }}>
+                                                Management System
+                                            </Typography>
+                                        </AccordionSummary>
+                                        <AccordionDetails>
                                             <Grid xs={12} item>
                                                 <FormControl>
                                                     <FormLabel id="mountingSystem">Mounting System</FormLabel>
@@ -247,34 +293,27 @@ function App() {
                                                     </RadioGroup>
                                                 </FormControl>
                                             </Grid>
-                                            <Grid xs={12} item>
-                                                <FormControl>
-                                                    <FormLabel id="powerTransmission">Power Transmission</FormLabel>
-                                                    <RadioGroup row name="powerTransmission" defaultValue="1" onChange={handleChangePowerTransmission}>
-                                                        <MyFormControlLabel value="1" label="Option 1" control={<Radio />} />
-                                                        <MyFormControlLabel value="2" label="Option 2" control={<Radio />} />
-                                                        <MyFormControlLabel value="3" label="Option 3" control={<Radio />} />
-                                                    </RadioGroup>
-                                                </FormControl>
-                                            </Grid>
-                                            <Grid xs={12} item>
-                                                <FormControl>
-                                                    <FormLabel id="gearbox">Gearbox</FormLabel>
-                                                    <RadioGroup row name="gearbox" defaultValue="1" onChange={handleChangeGearbox}>
-                                                        <MyFormControlLabel value="1" label="Option 1" control={<Radio />} />
-                                                        <MyFormControlLabel value="2" label="Option 2" control={<Radio />} />
-                                                        <MyFormControlLabel value="3" label="Option 3" control={<Radio />} />
-                                                    </RadioGroup>
-                                                </FormControl>
-                                            </Grid>
                                         </AccordionDetails>
                                     </Accordion>
                                 </Grid>
                                 <Grid xs={12} item>
                                     <SubmitButton triggerAPI={triggerAPI} />
                                 </Grid>
+
                             </Grid>
                         </form>
+                    </Card>
+                </Grid>
+                <Grid xs={12} item>
+                    <Card style={{ maxWidth: 600, margin: "0 auto", padding: "10px 10px" }}>
+                        <CardContent>
+                            <Grid xs={12} item>
+                                <Status />
+                            </Grid>
+                            <Grid xs={12} item>
+                                <Result />
+                            </Grid>
+                        </CardContent>
                     </Card>
                 </Grid>
             </Grid>

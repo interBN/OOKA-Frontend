@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import { useCallback, useState, useEffect, useRef } from 'react';
 
 
+
 export default function SubmitButton({ triggerAPI }) {
     const [open, setOpen] = React.useState(false);
     const [btnDisabled, setBtnDisabled] = useState(false)
@@ -18,7 +19,19 @@ export default function SubmitButton({ triggerAPI }) {
         e.preventDefault()
         triggerAPI();
         setBtnDisabled(true);
+        // bla();
     }, [triggerAPI, open])
+
+    // const MINUTE_MS = 1000;
+
+    // const bla = useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         console.log('Logs every minute');
+    //     }, MINUTE_MS);
+    //     return () => clearInterval(interval);
+    // }, [])
+
+    // https://overreacted.io/making-setinterval-declarative-with-react-hooks/
 
     // useInterval(() => {
     //     callMyApi()
@@ -47,7 +60,7 @@ export default function SubmitButton({ triggerAPI }) {
 
     return (
         <div>
-            <Button disabled={btnDisabled} type='submit' variant="contained" color='primary' fullWidth onClick={handleSubmit}>Send</Button>
+            <Button disabled={btnDisabled} type='submit' variant="contained" color='primary' fullWidth onClick={handleSubmit}>Start Simulation</Button>
             <Backdrop
                 sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                 open={open}
